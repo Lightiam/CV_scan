@@ -1,0 +1,63 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Resume {
+  chatMessages ChatMessage[]
+  createdAt    DateTime      @default(now())
+  email        String?
+  file         Json?
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  name         String?
+  skills       String?
+  updatedAt    DateTime      @updatedAt
+}
+
+model JobDescription {
+  createdAt      DateTime @default(now())
+  description    String?
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  requiredSkills String?
+  title          String?
+  updatedAt      DateTime @updatedAt
+}
+
+model Skill {
+  createdAt DateTime        @default(now())
+  id        String          @id @default(auto()) @map("_id") @db.ObjectId
+  level     EnumSkillLevel?
+  name      String?
+  updatedAt DateTime        @updatedAt
+}
+
+model ChatMessage {
+  createdAt DateTime  @default(now())
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  message   String?
+  resume    Resume?   @relation(fields: [resumeId], references: [id])
+  resumeId  String?   @db.ObjectId
+  sender    String?
+  timestamp DateTime?
+  updatedAt DateTime  @updatedAt
+}
+
+model User {
+  createdAt DateTime @default(now())
+  email     String?  @unique
+  firstName String?
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+enum EnumSkillLevel {
+  Option1
+}

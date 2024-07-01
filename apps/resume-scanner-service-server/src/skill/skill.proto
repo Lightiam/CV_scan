@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package skill;
+service SkillService {
+ rpc createSkill (SkillCreateInput) returns (Skill) {}
+rpc skills (findManyParams) returns (stream Skill) {}
+rpc skill (SkillWhereUniqueInput) returns (Skill) {}
+rpc updateSkill (SkillUpdateInput) returns (Skill) {}
+rpc deleteSkill (SkillWhereUniqueInput) returns (Skill) {} 
+ }
+message SkillCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated string level = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message Skill {
+string createdAt = 1;
+string id = 2;
+repeated string level = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message SkillWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated string level = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message SkillUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated string level = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

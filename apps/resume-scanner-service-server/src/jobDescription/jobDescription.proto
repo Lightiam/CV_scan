@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package jobDescription;
+service JobDescriptionService {
+ rpc createJobDescription (JobDescriptionCreateInput) returns (JobDescription) {}
+rpc jobDescriptions (findManyParams) returns (stream JobDescription) {}
+rpc jobDescription (JobDescriptionWhereUniqueInput) returns (JobDescription) {}
+rpc updateJobDescription (JobDescriptionUpdateInput) returns (JobDescription) {}
+rpc deleteJobDescription (JobDescriptionWhereUniqueInput) returns (JobDescription) {} 
+ }
+message JobDescriptionCreateInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string requiredSkills = 4;
+string title = 5;
+string updatedAt = 6;
+};
+message JobDescription {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string requiredSkills = 4;
+string title = 5;
+string updatedAt = 6;
+};
+message JobDescriptionWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string requiredSkills = 4;
+string title = 5;
+string updatedAt = 6;
+};
+message JobDescriptionUpdateInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string requiredSkills = 4;
+string title = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+                 package resume;
+service ResumeService {
+ rpc createResume (ResumeCreateInput) returns (Resume) {}
+rpc resumes (findManyParams) returns (stream Resume) {}
+rpc resume (ResumeWhereUniqueInput) returns (Resume) {}
+rpc updateResume (ResumeUpdateInput) returns (Resume) {}
+rpc deleteResume (ResumeWhereUniqueInput) returns (Resume) {}
+rpc findManyResume (ResumeWhereUniqueInput) returns (stream ChatMessage) {}
+rpc updateResume (ChatMessageParams) returns (stream ChatMessage) {}
+rpc connectResume (ChatMessageParams) returns (ChatMessage) {}
+rpc disconnectResume (ChatMessageParams) returns (ChatMessage) {} 
+ }
+message ResumeCreateInput {
+repeated ChatMessage chatMessages = 1;
+string createdAt = 2;
+string email = 3;
+string file = 4;
+string id = 5;
+string name = 6;
+string skills = 7;
+string updatedAt = 8;
+};
+message Resume {
+repeated ChatMessage chatMessages = 1;
+string createdAt = 2;
+string email = 3;
+string file = 4;
+string id = 5;
+string name = 6;
+string skills = 7;
+string updatedAt = 8;
+};
+message ResumeWhereUniqueInput {
+repeated ChatMessage chatMessages = 1;
+string createdAt = 2;
+string email = 3;
+string file = 4;
+string id = 5;
+string name = 6;
+string skills = 7;
+string updatedAt = 8;
+};
+message ResumeUpdateInput {
+repeated ChatMessage chatMessages = 1;
+string createdAt = 2;
+string email = 3;
+string file = 4;
+string id = 5;
+string name = 6;
+string skills = 7;
+string updatedAt = 8;
+};
+message findManyParams {
+
+};
+message ChatMessage {
+string createdAt = 1;
+string id = 2;
+string message = 3;
+string sender = 4;
+string timestamp = 5;
+string updatedAt = 6;
+};
+message ChatMessageWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string message = 3;
+string sender = 4;
+string timestamp = 5;
+string updatedAt = 6;
+};
+message ChatMessageParams {
+ResumeWhereUniqueInput resumeWhereUniqueInput = 1;
+ChatMessageWhereUniqueInput chatmessageWhereUniqueInput = 2;
+};
