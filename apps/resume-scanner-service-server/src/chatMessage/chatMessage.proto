@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package chatMessage;
+service ChatMessageService {
+ rpc createChatMessage (ChatMessageCreateInput) returns (ChatMessage) {}
+rpc chatMessages (findManyParams) returns (stream ChatMessage) {}
+rpc chatMessage (ChatMessageWhereUniqueInput) returns (ChatMessage) {}
+rpc updateChatMessage (ChatMessageUpdateInput) returns (ChatMessage) {}
+rpc deleteChatMessage (ChatMessageWhereUniqueInput) returns (ChatMessage) {} 
+ }
+message ChatMessageCreateInput {
+string createdAt = 1;
+string id = 2;
+string message = 3;
+string sender = 4;
+string timestamp = 5;
+string updatedAt = 6;
+};
+message ChatMessage {
+string createdAt = 1;
+string id = 2;
+string message = 3;
+string sender = 4;
+string timestamp = 5;
+string updatedAt = 6;
+};
+message ChatMessageWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string message = 3;
+string sender = 4;
+string timestamp = 5;
+string updatedAt = 6;
+};
+message ChatMessageUpdateInput {
+string createdAt = 1;
+string id = 2;
+string message = 3;
+string sender = 4;
+string timestamp = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
